@@ -7,7 +7,7 @@
 }</style>
 
 
-
+@dd($sliders);
 @if(isset($sliders))
 <section id="home-background-slider" class="background-slider-block owl-carousel"">
     <div class="lazy item home-slider-img">
