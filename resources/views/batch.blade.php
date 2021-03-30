@@ -226,10 +226,10 @@
                                     <h5 class="description-heading">{{ $c['title'] }}</h5>
                                     <div class="protip-img">
                                         @if($c['preview_image'] !== NULL && $c['preview_image'] !== '')
-                                            <a href="{{ route('batch.detail',['id' => $c->id, 'slug' => $c->slug ]) }}"><img src="{{ asset('images/course/'.$c['preview_image']) }}" alt="student" class="img-fluid">
+                                            <a href="{{ route('batch.detail',['id' => $c->id ]) }}"><img src="{{ asset('images/course/'.$c['preview_image']) }}" alt="student" class="img-fluid">
                                             </a>
                                         @else
-                                            <a href="{{ route('batch.detail',['id' => $c->id, 'slug' => $c->slug ]) }}"><img src="{{ Avatar::create($c->title)->toBase64() }}" alt="student" class="img-fluid">
+                                            <a href="{{ route('batch.detail',['id' => $c->id ]) }}"><img src="{{ Avatar::create($c->title)->toBase64() }}" alt="student" class="img-fluid">
                                             </a>
                                         @endif
                                     </div>
