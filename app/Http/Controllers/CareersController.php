@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Career;
 use App\About;
-
+use App\Slider;
 class CareersController extends Controller
 {
     public function show()
