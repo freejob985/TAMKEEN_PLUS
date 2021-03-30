@@ -6,6 +6,33 @@
     color: #ef7716;
 }</style>
 
+
+
+@if(isset($sliders))
+<section id="home-background-slider" class="background-slider-block owl-carousel" style="display:none;">
+    <div class="lazy item home-slider-img">
+        @foreach($sliders as $slider)
+
+        @if($slider->status == 1)
+        <div id="home" class="home-main-block" style="background-image: url('{{ asset('images/slider/'.$slider['image']) }}')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 {{$slider['left'] == 1 ? 'col-md-offset-6 col-sm-offset-6 col-sm-6 col-md-6 text-right' : ''}}">
+                        <div class="home-dtl wow slideInUp">
+                            <div class="home-heading">{{ $slider['heading'] }}</div>
+                            <p class="btm-10">{{ $slider['sub_heading'] }}</p>
+                            <p class="btm-20">{{ $slider['detail'] }}</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        @endforeach
+    </div>
+</section>
+@endif
 @if($data['one_enable'] == 1)
 <!-- about-home start -->
 <section id="careers" class="about-home-one-main-block careers-main-block">
