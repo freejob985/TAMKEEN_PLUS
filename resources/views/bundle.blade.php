@@ -7,7 +7,7 @@
 
 
 
-
+<section id="bundle-block" class="student-main-block">
 <div class="row">
     @foreach($bundles as $c)
 
@@ -19,10 +19,10 @@
                 <div class="view-block wow fadeIn">
                     <div class="view-img">
                         @if($c['preview_image'] !== NULL && $c['preview_image'] !== '')
-                            <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}">
+                            <a href="{{ route('bundle.detail',['id' => $c->id, 'slug' => $c->slug ]) }}">
                                 <img src="{{ asset('images/bundle/'.$c['preview_image']) }}" data-src="{{ asset('images/course/'.$c['preview_image']) }}" alt="course" class="img-fluid owl-lazy"></a>
                         @else
-                            <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}">
+                            <a href="{{ route('bundle.detail',['id' => $c->id, 'slug' => $c->slug ]) }}">
                                 <img src="{{ asset('images/bundle/'.$c['preview_image']) }}" data-src="{{ Avatar::create($c->title)->toBase64() }}" alt="course" class="img-fluid owl-lazy"></a>
                         @endif
                     </div>
@@ -362,7 +362,7 @@
       @endif
     @endforeach
 </div>
-
+</section>
 
 
 
@@ -373,7 +373,9 @@
 
 <!-- Bundle start -->
 @if(isset($bundles))
-<section id="bundle-block" class="student-main-block">
+<section id="bundle-block" class="student-main-block" style="
+display: none;
+">
     <div class="container">
         @if(count($bundles) > 0)
         <h4 class="student-heading">{{ __('frontstaticword.BundleCourses') }}</h4>
