@@ -371,6 +371,7 @@ class CareersController extends Controller
     {
         $about = About::first();
         $data = Career::first();
-        return view('front.careers',compact('data','about'));
+        $sliders = Slider::orderBy('position', 'ASC')->get();
+        return view('front.careers',compact('data','about','sliders'));
     }
 }
