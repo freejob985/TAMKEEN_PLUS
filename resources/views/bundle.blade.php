@@ -20,10 +20,10 @@
                     <div class="view-img">
                         @if($c['preview_image'] !== NULL && $c['preview_image'] !== '')
                             <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}">
-                                <img src="{{ asset('images/course/'.$c['preview_image']) }}" data-src="{{ asset('images/course/'.$c['preview_image']) }}" alt="course" class="img-fluid owl-lazy"></a>
+                                <img src="{{ asset('images/bundle/'.$c['preview_image']) }}" data-src="{{ asset('images/course/'.$c['preview_image']) }}" alt="course" class="img-fluid owl-lazy"></a>
                         @else
                             <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}">
-                                <img src="{{ asset('images/course/'.$c['preview_image']) }}" data-src="{{ Avatar::create($c->title)->toBase64() }}" alt="course" class="img-fluid owl-lazy"></a>
+                                <img src="{{ asset('images/bundle/'.$c['preview_image']) }}" data-src="{{ Avatar::create($c->title)->toBase64() }}" alt="course" class="img-fluid owl-lazy"></a>
                         @endif
                     </div>
                     @if($c['level_tags'] == !NULL)
