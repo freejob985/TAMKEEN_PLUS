@@ -12,8 +12,8 @@ class CareersController extends Controller
     {
     	$careers = Career::first();
         $data = About::first();
-
-    	return view('admin.careers.edit', compact('careers','data'));
+        $sliders = Slider::orderBy('position', 'ASC')->get();
+    	return view('admin.careers.edit', compact('careers','data','sliders'));
     }
 
     public function update(Request $request)
