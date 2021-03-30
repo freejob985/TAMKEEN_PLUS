@@ -17,7 +17,6 @@
 
 <!-- Bundle start -->
 @if(isset($bundles))
-<section id="bundle-block" class="student-main-block">
     <div class="container">
         @if(count($bundles) > 0)
         <h4 class="student-heading">{{ __('frontstaticword.BundleCourses') }}</h4>
@@ -193,7 +192,7 @@
         @endif
 
     </div>
-</section>
+
 @endif
 <!-- Bundle end -->
 
