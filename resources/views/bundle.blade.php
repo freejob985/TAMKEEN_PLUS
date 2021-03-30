@@ -21,7 +21,7 @@
         @if(count($bundles) > 0)
         <h4 class="student-heading">{{ __('frontstaticword.BundleCourses') }}</h4>
 
-        <div id="bundle-view-slider" class="student-view-slider-main-block owl-carousel">
+        <div  class="student-view-slider-main-block owl-carousel">
             @foreach($bundles as $bundle)
                 @if($bundle->status == 1)
 
