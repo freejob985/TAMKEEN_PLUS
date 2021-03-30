@@ -34,10 +34,10 @@
                             <div class="view-block wow fadeIn">
                                 <div class="view-img">
                                     @if($c['preview_image'] !== NULL && $c['preview_image'] !== '')
-                                        <a href="{{ route('batch.detail',['id' => $c->id, 'slug' => $c->slug ]) }}">
+                                        <a href="{{ route('batch.detail',['id' => $c->id]) }}">
                                             <img src="{{ asset('images/batch/'.$c['preview_image']) }}" data-src="{{ asset('images/course/'.$c['preview_image']) }}" alt="course" class="img-fluid owl-lazy"></a>
                                     @else
-                                        <a href="{{ route('batch.detail',['id' => $c->id, 'slug' => $c->slug ]) }}">
+                                        <a href="{{ route('batch.detail',['id' => $c->id ]) }}">
                                             <img src="{{ asset('images/batch/'.$c['preview_image']) }}" data-src="{{ Avatar::create($c->title)->toBase64() }}" alt="course" class="img-fluid owl-lazy"></a>
                                     @endif
                                 </div>
@@ -387,7 +387,9 @@
 
 
 
-<section id="batch-block" class="student-main-block">
+<section id="batch-block" class="student-main-block" style="
+display: none;
+">
     <div class="container">
         @if(count($batches) > 0)
         <h4 class="student-heading">دورات خاصة</h4>
