@@ -520,25 +520,34 @@ $cors = App\Course::where('status', '1')->where('category_id', "7")->orderBy('id
 
     <div class="container">
         <h4 class="student-heading">برامج ريادة الاعمال والتسويق</h4>
-        <div id="my-courses-slidera" class="student-view-slideraa-main-blockaa owl-carousel">
+        <div class="row">
             @foreach($cors as $c)
-              @if($c->status == 1 && $c->featured == 1)
-                <div class="item student-view-blockaa student-view-block-1">
-                    <div class="genre-slide-image @if($gsetting['course_hover'] == 1) protip @endif" data-pt-placement="outside" data-pt-interactive="false" data-pt-title="#prime-next-item-description-block{{$c->id}}">
-                        <div class="view-block">
+ 
+         @if($c->status == 1 && $c->featured == 1)
+            
+                <div class="col-md-2">
+               <div class="item student-view-block student-view-block-1">
+
+                        <div class="view-block wow fadeIn">
                             <div class="view-img">
                                 @if($c['preview_image'] !== NULL && $c['preview_image'] !== '')
-                                    <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}"><img data-src="{{ asset('images/course/'.$c['preview_image']) }}" alt="course" class="img-fluid owl-lazy"></a>
+                                    <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}">
+                                        <img src="{{ asset('images/course/'.$c['preview_image']) }}" data-src="{{ asset('images/course/'.$c['preview_image']) }}" alt="course" class="img-fluid owl-lazy"></a>
                                 @else
-                                    <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}"><img data-src="{{ Avatar::create($c->title)->toBase64() }}" alt="course" class="img-fluid owl-lazy"></a>
+                                    <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}">
+                                        <img src="{{ asset('images/course/'.$c['preview_image']) }}" data-src="{{ Avatar::create($c->title)->toBase64() }}" alt="course" class="img-fluid owl-lazy"></a>
                                 @endif
                             </div>
                             @if($c['level_tags'] == !NULL)
-                            <div class="best-seller">{{ $c['level_tags'] }}</div>
+                            <div class="trending">
+                            <div class="best-seller">
+                                {{ $c['level_tags'] }}
+                            </div>
+                            </div>
                             @endif
                             <div class="view-dtl">
                                 <div class="view-heading btm-10"><a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}">{{ str_limit($c->title, $limit = 30, $end = '...') }}</a></div>
-                                <p class="btm-10"><a herf="#">{{ __('frontstaticword.by') }}
+                                <p class="btm-10"><a herf="#">
                                     @if (! is_null( $c->user) && ! is_null($c->user ))
                                     {{ $c->user['fname'] }} {{ $c->user['lname'] }}
                                     @endif
@@ -707,17 +716,17 @@ $cors = App\Course::where('status', '1')->where('category_id', "7")->orderBy('id
                                 </div>
                             </div>
                         </div>
-                    </div>
+             
                     <div id="prime-next-item-description-block{{$c->id}}" class="prime-description-block">
                         <div class="prime-description-under-block">
                             <div class="prime-description-under-block">
                                 <h5 class="description-heading">{{ $c['title'] }}</h5>
                                 <div class="protip-img">
                                     @if($c['preview_image'] !== NULL && $c['preview_image'] !== '')
-                                        <a href="{{ route('Instructor.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}"><img src="{{ asset('images/course/'.$c['preview_image']) }}" alt="student" class="img-fluid">
+                                        <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}"><img src="{{ asset('images/course/'.$c['preview_image']) }}" alt="student" class="img-fluid">
                                         </a>
                                     @else
-                                        <a href="{{ route('Instructor.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}"><img src="{{ Avatar::create($c->title)->toBase64() }}" alt="student" class="img-fluid">
+                                        <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}"><img src="{{ Avatar::create($c->title)->toBase64() }}" alt="student" class="img-fluid">
                                         </a>
                                     @endif
                                 </div>
@@ -809,7 +818,7 @@ $cors = App\Course::where('status', '1')->where('category_id', "7")->orderBy('id
                                                                 </div>
                                                             @else
                                                                 <div class="protip-btn">
-                                                                    <form id="demo-form2" method="post" action="{{ route('addtocart',['course_id' => $c->id, 'price' => $c->price, 'discount_price' => $c->discount_price ]) }}"
+                                 <form id="demo-form2" method="post" action="{{ route('addtocart',['course_id' => $c->id, 'price' => $c->price, 'discount_price' => $c->discount_price ]) }}"
                                                                         data-parsley-validate class="form-horizontal form-label-left">
                                                                             {{ csrf_field() }}
 
@@ -860,6 +869,7 @@ $cors = App\Course::where('status', '1')->where('category_id', "7")->orderBy('id
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
               @endif
             @endforeach
