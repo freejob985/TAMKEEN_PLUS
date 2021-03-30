@@ -49,7 +49,7 @@
                                 </div>
                                 @endif
                                 <div class="view-dtl">
-                                    <div class="view-heading btm-10"><a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}">{{ str_limit($c->title, $limit = 30, $end = '...') }}</a></div>
+                                    <div class="view-heading btm-10"><a href="{{ route('batch.detail',['id' => $c->id, 'slug' => $c->slug ]) }}">{{ str_limit($c->title, $limit = 30, $end = '...') }}</a></div>
                                     <p class="btm-10"><a herf="#">
                                         @if (! is_null( $c->user) && ! is_null($c->user ))
                                         {{ $c->user['fname'] }} {{ $c->user['lname'] }}
@@ -226,10 +226,10 @@
                                     <h5 class="description-heading">{{ $c['title'] }}</h5>
                                     <div class="protip-img">
                                         @if($c['preview_image'] !== NULL && $c['preview_image'] !== '')
-                                            <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}"><img src="{{ asset('images/course/'.$c['preview_image']) }}" alt="student" class="img-fluid">
+                                            <a href="{{ route('batch.detail',['id' => $c->id, 'slug' => $c->slug ]) }}"><img src="{{ asset('images/course/'.$c['preview_image']) }}" alt="student" class="img-fluid">
                                             </a>
                                         @else
-                                            <a href="{{ route('user.course.show',['id' => $c->id, 'slug' => $c->slug ]) }}"><img src="{{ Avatar::create($c->title)->toBase64() }}" alt="student" class="img-fluid">
+                                            <a href="{{ route('batch.detail',['id' => $c->id, 'slug' => $c->slug ]) }}"><img src="{{ Avatar::create($c->title)->toBase64() }}" alt="student" class="img-fluid">
                                             </a>
                                         @endif
                                     </div>
