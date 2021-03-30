@@ -17,15 +17,16 @@
 
 <!-- Bundle start -->
 @if(isset($bundles))
+<section id="bundle-block" class="student-main-block">
     <div class="container">
         @if(count($bundles) > 0)
         <h4 class="student-heading">{{ __('frontstaticword.BundleCourses') }}</h4>
 
-        <div  class="student-view-slider-main-block owl-carousel">
+        <div id="bundle-view-slider" class="student-view-slider-main-block owl-carousel">
             @foreach($bundles as $bundle)
                 @if($bundle->status == 1)
 
-                <div >
+                <div class="item student-view-block student-view-block-1">
                     <div class="genre-slide-image @if($gsetting['course_hover'] == 1) protip @endif" data-pt-placement="outside" data-pt-interactive="false" data-pt-title="#prime-next-item-description-block-4{{$bundle->id}}">
                         <div class="view-block">
                             <div class="view-img">
@@ -192,7 +193,7 @@
         @endif
 
     </div>
-
+</section>
 @endif
 <!-- Bundle end -->
 
