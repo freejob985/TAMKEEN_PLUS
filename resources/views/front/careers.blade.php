@@ -9,7 +9,7 @@
 
 
 @if(isset($sliders))
-<section id="home-background-slider" class="background-slider-block owl-carousel" style="display:none;">
+<section id="home-background-slider" class="background-slider-block owl-carousel"">
     <div class="lazy item home-slider-img">
         @foreach($sliders as $slider)
 
